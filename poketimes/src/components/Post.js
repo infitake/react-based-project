@@ -5,6 +5,8 @@ class Post extends Component {
   state = {
     post: null
   }
+  //Switch tag is used to open a link at one time in app.js
+  
   componentDidMount(){
     let id = this.props.match.params.post_id;
     axios.get('https://jsonplaceholder.typicode.com/posts/' + id)
