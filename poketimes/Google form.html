@@ -1,0 +1,54 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen"  />
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <form id="test-form">
+  
+        <div>
+          <label>Field 1</label>
+          <input type="text" name="NAME" placeholder="Field 1"/>
+        </div>
+      
+        <div>
+          <label>Field 2</label>
+          <input type="text" name="AGE" placeholder="Field 2"/>
+        </div>
+        
+        <div>
+          <label>Field 3</label>
+          <input type="text" name="BRANCH" placeholder="Field 3"/>
+        </div>
+        
+      
+        <div>
+          <button type="submit" id="submit-form">Submit</button>
+        </div>
+      
+      </form>
+      <script>
+          var $form = $('form#test-form'),
+    url = 'https://script.google.com/macros/s/AKfycbzw4BD0lKGw0SpUgpY6szKf27phPNBIetxvB_11ieicvP-b5Q/exec'
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  alert("form is submitted");
+  var jqxhr = $.ajax({
+    url: url,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject()
+  }).success(
+    // do something
+    alert("form is submitted 234")
+  );
+})
+      </script>
+</body>
+</html>
